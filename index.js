@@ -1,13 +1,13 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const manager = require('./lib/manager');
-// const employee = require('./lib/employee');
 const engineer = require('./lib/engineer');
 const intern = require('./lib/intern');
 const generateHTML = require('./lib/generateHTML');
 
 const team = [];
 
+// Questions for Team Manager
 const managerQuestion = () => {
     return inquirer.prompt([
         {
@@ -44,6 +44,7 @@ const managerQuestion = () => {
 
 };
 
+// Questions for Employees
 const addEmployee = () => {
     return inquirer.prompt([
         {
@@ -56,46 +57,46 @@ const addEmployee = () => {
         {
             type: "input",
             message: "Enter Employee's Name:",
-            name: "employeeName",
+            name: "name",
             validate: (value)=> {if (value){return true} else {return "Please enter Name to continue"}}
         },
         {
             type: "input",
             message: "Enter Employee's ID:",
-            name: "employeeId",
+            name: "id",
             validate: (value)=> {if (value){return true} else {return "Please enter ID to continue"}}
         },
         {
             type: "input",
             message: "Enter employee's e-mail address:",
-            name: "employeeEmail",
+            name: "email",
             validate: (value)=> {if (value){return true} else {return "Please enter e-mail to continue"}}
         },
         {
             type: "input",
             message: "Enter employee's GitHub username:",
-            name: "employeeGithub",
+            name: "github",
             when: (input) => input.position === "Engineer",
             validate: (value)=> {if (value){return true} else {return "Please enter username to continue"}}
         },
         {
             type: "input",
             message: "Enter the employee's school: ",
-            name: "employeeSchool",
+            name: "school",
             when: (input) => input.position === "Intern",
             validate: (value)=> {if (value){return true} else {return "Please enter school name to continue"}}
         },
-    ]);
-
-    .then((employeeInfo) => {
-        const {position, employeeName, employeeId, employeeEmail, employeeGithub, employeeSchool } = employeeInfo;
+    ])
+    // asks if employee is an Engineer or Intern
+    .then(employeeInfo => {
+        const {position, name, id, email, github, school } = employeeInfo;
         let employee;
         if (position === "Engineer") {
-            employee = new Engineer (employeeName, employeeId, employeeEmail, employeeGithub);
+            employee = new engineer (name, id, email, githumb);
             console.log(employee);
         } 
         else if (position === "Intern") {
-            employee = new Intern (employeeName, employeeId, employeeEmail, employeeSchool);
+            employee = new intern (name, id, email, school);
             console.log(employee);
         } 
         team.push(employee);
@@ -115,7 +116,7 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 function init() {
-    inquirer.prompt(addEmployee)
+    inquirer.prompt(addEmployee, managerQuestion)
     .then(function(input) {
         console.log(input)
         writeToFile("index.html", generateHTML(input));
