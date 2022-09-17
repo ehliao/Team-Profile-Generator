@@ -113,19 +113,6 @@ const internQuestions = () => {
         },
         {
             type: "input",
-            message: "Enter Intern's e-mail address:",
-            name: "email",
-            validate: (value)=> {
-                if (value){
-                    return true;
-                } else {
-                    console.log ("Please enter email to continue");
-                    return false;
-                }
-            }        
-        },
-        {
-            type: "input",
             message: "Enter Intern's employee ID:",
             name: "id",
             validate: (value)=> {
@@ -133,6 +120,19 @@ const internQuestions = () => {
                     return true;
                 } else {
                     console.log ("Please enter ID to continue");
+                    return false;
+                }
+            }        
+        },
+        {
+            type: "input",
+            message: "Enter Intern's e-mail address:",
+            name: "email",
+            validate: (value)=> {
+                if (value){
+                    return true;
+                } else {
+                    console.log ("Please enter email to continue");
                     return false;
                 }
             }        
@@ -152,7 +152,7 @@ const internQuestions = () => {
         },
     ]).then(response => {
         console.log(response);
-        const intern = new Intern (response.name, response.email, response.id, response.school);
+        const intern = new Intern (response.name, response.id, response.email, response.school);
         team.push(intern);
         addEmployee();
         
@@ -176,19 +176,6 @@ const engineerQuestions = () => {
         },
         {
             type: "input",
-            message: "Enter Engineers's e-mail address:",
-            name: "email",
-            validate: (value)=> {
-                if (value){
-                    return true;
-                } else {
-                    console.log ("Please enter email to continue");
-                    return false;
-                }
-            }        
-        },
-        {
-            type: "input",
             message: "Enter Engineers's employee ID:",
             name: "id",
             validate: (value)=> {
@@ -196,6 +183,19 @@ const engineerQuestions = () => {
                     return true;
                 } else {
                     console.log ("Please enter ID to continue");
+                    return false;
+                }
+            }        
+        },
+        {
+            type: "input",
+            message: "Enter Engineers's e-mail address:",
+            name: "email",
+            validate: (value)=> {
+                if (value){
+                    return true;
+                } else {
+                    console.log ("Please enter email to continue");
                     return false;
                 }
             }        
@@ -215,7 +215,7 @@ const engineerQuestions = () => {
         },
     ]).then(response => {
         console.log(response);
-        const engineer = new Engineer (response.name, response.email, response.id, response.github);
+        const engineer = new Engineer (response.name, response.id, response.email, response.github);
         team.push(engineer);
         addEmployee();
         
