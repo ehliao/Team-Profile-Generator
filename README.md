@@ -3,8 +3,7 @@
 ## Table of Contents
 * [Description](#description)
 * [Installation](#installation)
-* [Screenshots](#screenshots)
-* [Heroku](#heroku)
+* [Video Walkthrough](#video-walkthrough)
 * [GitHub](#github)
 
 <br/>
