@@ -5,6 +5,8 @@
 * [Installation](#installation)
 * [Video Walkthrough](#video-walkthrough)
 * [GitHub](#github)
+* [Email](#e-mail)
+
 
 <br/>
 
@@ -42,7 +44,7 @@ THEN I exit the application, and the HTML is generated
 ```
 
 # Installation
-To run the application, please install necessary npm modules through the command line by inputing `npm install`. Once modules have been installed, run `npm test` to ensure the unit test files pass. Finally, run `node idex.js` to launch the command-line application to initiate the prompts. 
+To run the application, please install necessary npm modules through the command line by inputing `npm install`. Once modules have been installed, run `npm test` to ensure the unit test files pass. Finally, run `node index.js` to launch the command-line application to initiate the prompts. 
 
 # Video Walkthrough
 [Video Walkthrough](https://drive.google.com/file/d/1EC6p1RykKr6fiKShHWv_o1_dkYy-n5ex/view)
@@ -52,3 +54,5 @@ To run the application, please install necessary npm modules through the command
 <br/>
 [My GitHub Username](https://github.com/ehliao)
 
+# E-mail
+elaine_liao@sbcglobal.net
